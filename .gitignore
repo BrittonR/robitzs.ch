@@ -13,6 +13,7 @@
 # # MSVC Windows builds of rustc generate these, which store debugging information
 # *.pdb
 **/.devenv
+**/public
 **/.direnv
 **/.DS_Store
 **/.envrc
