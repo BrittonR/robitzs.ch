@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://robitzsch.fly.dev"
+base_url = "https://robitzsch.fly.dev/index"
 
 
 theme = "shadharon"
@@ -34,7 +34,7 @@ headerImage = ""
 
 # The icon is display besides the menu text but is not necessary. It needs to be placed under "menu_icon" in the static "folder"
 menu = [
-    { name = "about", url = "/about/me", weight = 1, icon = "projects.png" },
+    { name = "posts", url = "/posts", weight = 1, icon = "projects.png" },
 ]
 #The icons available can be found in "social_icons" in the "static" folder
 socials = [
