@@ -1,10 +1,10 @@
 # The URL the site will be built for
-base_url = "https://robitzs.ch"
+base_url = "https://robitzs.ch/"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
-theme = "anemone"
+theme = "d3c3nt"
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 generate_feed = true
@@ -17,7 +17,10 @@ highlight_code = true
 list_pages = true
 
 [[extra.header_nav]]
-en = { name = "/home/", url = "/" }
+en = { name = " home ", url = "/" }
 
 [[extra.header_nav]]
-en = { name = "/posts/", url = "/posts" }
+en = { name = " posts ", url = "/posts" }
+
+[[extra.header_nav]]
+en = { name = " about ", url = "/about/me" }
