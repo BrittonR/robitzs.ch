@@ -4,7 +4,7 @@ base_url = "https://robitzs.ch/"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
-theme = "d3c3nt"
+# theme = "d3c3nt"
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 generate_feed = true
