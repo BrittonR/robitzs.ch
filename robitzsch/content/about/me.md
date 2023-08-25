@@ -1,7 +1,7 @@
 +++
 paginate_by = 7
-path = "posts"
-title = "Posts"
+path = "about"
+title = "me"
 sort_by = "date"
 
 [extra]
