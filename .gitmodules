@@ -1,6 +1,0 @@
-[submodule "robitzsch/themes/d3c3nt"]
-	path = robitzsch/themes/d3c3nt
-	url = git://git.figbert.com/d3c3nt.git
-[submodule "robitzsch/themes/anemone"]
-	path = robitzsch/themes/anemone
-	url = git://github.com/Speyll/anemone.git
