@@ -1,9 +1,26 @@
 +++
-paginate_by = 7
-path = "about"
-title = "me"
-sort_by = "date"
+title = "Markdown Test"
+date = "2022-01-01"
 
-[extra]
-desc = {title = "Hello! I'm britton", img = "https://avatars.githubusercontent.com/u/4730485?v=4", text = "this is a test"}
+[taxonomies]
+tags = ["test"]
 +++
+
+## Code Block
+
+```rust
+fn main() {
+    println!("Hello World");
+}
+```
+
+## Quote
+
+> I'm gonna make him an offer he can't refuse
+- Godfather
+
+
+## Code tags
+
+Lorem ipsum `dolor` sit amet, `consectetur adipiscing` elit. 
+`Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
