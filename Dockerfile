@@ -1,7 +1,6 @@
 FROM ghcr.io/getzola/zola:v0.17.2 AS builder
 
 WORKDIR /robitzsch
-RUN pwd
 COPY . .
 RUN ["zola", "build"]
 
