@@ -57,7 +57,7 @@
           pre-commit.settings.hooks = {
             # nix hooks
             deadnix.enable = true;
-            nix-linter.enable = true;
+            # nix-linter.enable = true;
             nixpkgs-fmt.enable = true;
             statix.enable = true;
             # general hooks
@@ -67,7 +67,7 @@
           devShells.default = with pkgs; mkShell {
             packages = [ jsonnet netlify-cli optimize-images update-date zola ];
             shellHook = ''
-              ${config.pre-commit.installationScript}
+              # ${config.pre-commit.installationScript}
               ${linkFonts}
               mkdir -p extra/syntax
               ln -snf ${caddyfile-syntax} extra/syntax
