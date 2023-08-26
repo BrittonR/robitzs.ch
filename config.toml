@@ -1,4 +1,4 @@
-base_url = "https://robitzsch.fly.dev"
+base_url = "https://robitzs.ch"
 title = "robitzs.ch"
 description = "the personal website of britton robitzsch"
 default_language = "en"
@@ -20,9 +20,9 @@ taxonomies = [
 [markdown]
 highlight_code = true
 highlight_theme = "zenburn"
-# extra_syntaxes_and_themes = [
-#     "extra/syntax/"
-# ]
+extra_syntaxes_and_themes = [
+    "extra/syntax/"
+]
 render_emoji = false
 external_links_target_blank = true
 external_links_no_referrer = true
@@ -41,13 +41,10 @@ menu = [
     { name = "/posts", url = "@/posts/_index.md" },
     { name = "/projects", url = "@/projects.md" },
     { name = "/about", url = "@/about.md" },
-    { name = "git", url = "https://git.mat.services/mat", external = true },
+    { name = "git", url = "https://github.com/brittonr", external = true },
 ]
 
 me_links = [
-    { name = "pijul nest", url = "https://nest.pijul.com/mat" },
-    { name = "lobste.rs", url = "https://lobste.rs/u/mat" },
-    { name = "gitlab", url = "https://gitlab.com/matthewess" },
-    { name = "github", url = "https://github.com/matthewess" },
+    { name = "github", url = "https://github.com/brittonr" },
 ]
 
