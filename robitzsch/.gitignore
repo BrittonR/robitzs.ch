@@ -4,9 +4,9 @@ public/
 result
 
 # ignore folders where we link in files from the nix store
-extra/
-static/font/
-static/style/fonts.css
+# extra/
+# static/font/
+# static/style/fonts.css
 
 # Local Netlify folder
 .netlify
