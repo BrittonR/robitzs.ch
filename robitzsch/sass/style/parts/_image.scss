@@ -1,0 +1,43 @@
+img:not(#logo):not(#pixel) {
+  border: 3px solid #ececec;
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+img.hero {
+  height: auto;
+  margin-top: 1.5rem;
+  border: none !important;
+}
+
+figure {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0;
+  max-width: 100%;
+}
+
+figure img {
+  max-height: 500px;
+}
+
+@media screen and (min-width: 600px) {
+  figure {
+    padding: 0 40px;
+  }
+}
+
+figure p {
+  font-size: 1rem;
+  margin: 0;
+  margin-bottom: 1em;
+}
+
+figure p::before {
+  content: "↳ ";
+  font-weight: bold;
+}
+
+svg {
+  max-height: 15px;
+}

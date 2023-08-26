@@ -1,20 +1,22 @@
 {% import "macros/macros.html" as post_macros %}
 
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 {% include "partials/header.html" %}
 
 <body>
-    {% include "partials/nav.html" %}
-
-    <div class="content">
-        {# Post page is the default #}
-        {% block main_content %}
-            Nothing here?!
-        {% endblock main_content %}
-    </div>
-
-    {% include "partials/footer.html" %}
+  <div class="content">
+    {% include "partials/nav.html" -%}
+    {#- Post page is the default #}
+    <main class="inner">
+      {%- block main_content -%}
+      Nothing here?!
+      {%- endblock main_content -%}
+    </main>
+    {% block trailing_content -%}
+    {%- endblock trailing_content %}
+    {%- include "partials/footer.html" %}
+  </div>
 </body>
 
 </html>

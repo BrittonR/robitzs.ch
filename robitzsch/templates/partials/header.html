@@ -1,70 +1,59 @@
 {% import "macros/macros.html" as post_macros %}
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    {# Site title #}
-    {% set current_path = current_path | default(value="/") %}
-    {% if current_path == "/" %}
-    <title>
-        {{ config.title | default(value="Home") }}
-    </title>
-    {% else %}
-    <title>
-        {{ page.title | default(value=config.title) | default(value="Post") }}
-    </title>
-    {% endif %}
-
-    {# Favicon #}
-    {% if config.extra.favicon %}
-    <link rel="icon" type="image/png" href={{ config.extra.favicon }} />
-    {% endif %}
-
-
-
-    {# RSS #}
-    <link rel="alternate" type="application/atom+xml" title="{{ config.title }}" href="{{ get_url(path=" atom.xml",
-        trailing_slash=false) }}">
-    <link rel="stylesheet" type="text/css" media="screen" href={{ get_url(path="main.css" ) }} />
-
-    {%- if config.extra.search_bar %}
-        <script type="text/javascript" src="{{ get_url(path="elasticlunr.min.js") }}"></script>
-        <script type="text/javascript" src="{{ get_url(path="search_index.en.js") }}"></script>
-        <script type="text/javascript" src="{{ get_url(path="search.js") }}"></script>
-    {% endif %}
-
-    {% if config.extra.stylesheets %}
-    {% for stylesheet in config.extra.stylesheets %}
-    <link rel="stylesheet" href="{{ get_url(path=stylesheet) }}">
-    {% endfor %}
-    {% endif %}
-
-
-    <meta name="description" content="{{ config.description }}">
-
-    <meta name="description" content="{{ config.description }}">
-    {% if is_404 %}
-    <meta name="robots" content="noindex, follow">
-    {% else %}
-    <meta name="robots" content="index, nofollow">
-    {% endif %}
-
-    <meta property="og:title" content="{{ config.title }}">
-    <meta property="og:type" content="article" />
-
-    {% if config.extra.headerImage %}
-        <meta property="og:image" content="{{ config.extra.headerImage }}">
-        <meta name="twitter:card" content="{{ config.extra.headerImage }}">
-    {% endif %}
-
-    {% set current_url = current_url | default(value="/") %}
-    <meta property="og:url" content="{{ current_url }}">
-    
-    <meta property="og:description" content="{{ config.description }}">
-    <meta property="og:site_name" content="{{ config.title }}">
-
-    <meta http-equiv="Content-Security-Policy" 
-    content="default-src 'self' ws://127.0.0.1:1024/; img-src 'self' https://*; script-src 'self'; style-src 'self'; font-src 'self'" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {%- set current_path = current_path | default(value="/") -%}
+  {# Favicon #}
+  {%- if config.extra.favicon -%}
+  {%- set favicon_ext = config.extra.favicon | split(pat=".") | last -%}
+  <link rel="icon" type="image/{{ favicon_ext }}" href="{{ get_url(path=config.extra.favicon, cachebust=true) }}" />
+  {%- endif -%}
+  {% for font in config.extra.fonts -%}
+  {% set font_path = '/font/' ~ font.path ~ '/' ~ font.name ~ '-Regular.woff2' %}
+  <link rel="preload" href="{{ get_url(path=font_path, trailing_slash=false) }}" as="font" type="font/woff2" crossorigin>
+  {%- endfor %}
+  <link href="{{ get_url(path='style/fonts.css', cachebust=true) }}" rel="stylesheet preload" as="style" />
+  {# Atom #}
+  {%- block rss -%}
+  <link rel="alternate" type="application/atom+xml" title="{{ config.title }}" href="{{ get_url(path='atom.xml', trailing_slash=false) }}">
+  {%- endblock -%}
+  {# Theme #}
+  <link rel="stylesheet preload" as="style" type="text/css" href="{{ get_url(path='style/theme/light.css', cachebust=true) }}" />
+  <link rel="stylesheet preload" as="style" type="text/css" href="{{ get_url(path='style/theme/dark.css', cachebust=true) }}" media="(prefers-color-scheme: dark)" />
+  <link rel="stylesheet preload" as="style" type="text/css" media="screen" href="{{ get_url(path='style/main.css', cachebust=true) }}" />
+  <meta name="theme-color" content="lightcoral" />
+  {%- if config.extra.stylesheets -%}
+  {%- for stylesheet in config.extra.stylesheets -%}
+  <link rel="stylesheet" href="{{ get_url(path=stylesheet, cachebust=true) }}">
+  {%- endfor -%}
+  {%- endif -%}
+  {%- if current_path == "/" -%}
+  {%- set current_title = config.title | default(value="home") -%}
+  {%- set current_description = "the personal site of mat ess" -%}
+  {%- set hero = false -%}
+  {%- else -%}
+  {%- set current_title = page.title | default(value=config.title) | default(value="post") -%}
+  {%- set current_description = page.description | default(value="from the personal site of mat ess") -%}
+  {%- set hero = page.extra.hero | default(value=false) -%}
+  {%- endif -%}
+  {# Meta links #}
+  <title>{{ current_title }}</title>
+  <link rel="canonical" href="{{ get_url(path=current_path) }}" />
+  <meta name="title" content="{{ current_title }}">
+  <meta name="description" content="{{ current_description }}">
+  {#- Open Graph / Facebook #}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ current_title }}">
+  <meta property="og:description" content="{{ current_description }}">
+  {%- if hero -%}
+  <meta property="og:image" content="{{ get_url(path=current_path) }}/hero.webp">
+  {%- endif -%}
+  {#- Twitter #}
+  <meta property="twitter:title" content="{{ current_title }}">
+  <meta property="twitter:description" content="{{ current_description }}">
+  {%- if hero -%}
+  <meta property="twitter:image" content="{{ get_url(path=current_path) }}/hero.webp">
+  <meta property="twitter:card" content="summary_large_image">
+  {%- endif %}
 </head>

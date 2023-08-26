@@ -1,0 +1,81 @@
+[build]
+  command = "zola build --drafts"
+  publish = "public/"
+
+[dev]
+  command = "zola serve --drafts"
+  publish = "public/"
+  port = 1111
+
+[[redirects]]
+  from = "https://mat-services.netlify.app/*"
+  to = "https://www.mat.services/:splat"
+  force = true
+
+[[redirects]]
+  # avoid http -> https -> www double redirect
+  from = "http://mat.services"
+  to = "https://www.mat.services/:splat"
+  force = true
+
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    # baseline cache, one hour
+    Cache-Control = "public, max-age=3600"
+    # disable FLoC tracking
+    Permissions-Policy = "interest-cohort=()"
+    # enable HSTS
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    # prevent clients from sniffing the media type
+    X-Content-Type-Options = "nosniff"
+    # clickjacking protection
+    X-Frame-Options = "DENY"
+    # keep referrer data off of HTTP connections
+    Referrer-Policy = "no-referrer"
+    # content security policy
+    # style-src 'unsafe-inline': syntax highlighting in codefences
+    # sandbox allow-popups*: enable target="_blank" links to open in new tabs
+    Content-Security-Policy = '''
+    default-src 'none';
+    img-src 'self' https://stats.mat.services;
+    style-src 'self' 'unsafe-inline';
+    font-src 'self';
+    script-src 'self' https://stats.mat.services;
+    form-action 'none';
+    frame-ancestors 'none';
+    base-uri 'none';
+    upgrade-insecure-requests;
+    sandbox
+      allow-same-origin
+      allow-scripts
+      allow-popups 
+      allow-popups-to-escape-sandbox
+    '''
+
+# per asset caching
+
+[[headers]]
+  for = "/font/*"
+  [headers.values]
+    # a year
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/image/*"
+  [headers.values]
+    # a month
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    # a month
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/style/*"
+  [headers.values]
+    # a week
+    Cache-Control = "public, max-age=604800"

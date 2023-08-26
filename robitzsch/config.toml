@@ -1,42 +1,53 @@
-# The URL the site will be built for
-base_url = "https://robitzsch.fly.dev/index"
+base_url = "https://robitzsch.fly.dev"
+title = "robitzs.ch"
+description = "the personal website of britton robitzsch"
+default_language = "en"
 
-
-theme = "shadharon"
-# Whether to build a search index to be used later on by a JavaScript library
-
-title = "britton"
-description = "hello, world"
-generate_feed = true
 compile_sass = true
-minify_html = true
+build_search_index = false
+generate_feed = true
+ignored_content = [
+    "**/_*.{png,svg}",  # unoptimized images
+]
 
-build_search_index = true
+# theme is inlined
+# theme = "apollo"
 
 taxonomies = [
-    {name = "tags", feed = true},
+    { name = "tags" },
 ]
 
 [markdown]
 highlight_code = true
-highlight_theme = "css"
+highlight_theme = "zenburn"
+extra_syntaxes_and_themes = [
+    "extra/syntax/"
+]
+render_emoji = false
+external_links_target_blank = true
+external_links_no_referrer = true
 
 [extra]
-toc = true
-use_cdn = false
-search_bar = true
+favicon = "/image/favicon.svg"
+stylesheets = []
 
-#Full path after the base URL required. So if you were to place it in "static" it would be "/favicon.ico"
-favicon = ""
+fonts = [
+    { path = "ia-writer-quattro", name = "iAWriterQuattroS" },
+    { path = "ibm-plex-mono", name = "IBMPlexMono" },
+    { path = "inria-sans", name = "InriaSans" }
+]
 
-#This header image is used for SEO. For example if you were to share an image via Messenger/Instagram/Twitter a preview picture is also presented
-headerImage = ""
-
-# The icon is display besides the menu text but is not necessary. It needs to be placed under "menu_icon" in the static "folder"
 menu = [
-    { name = "posts", url = "/posts", weight = 1, icon = "projects.png" },
+    { name = "/posts", url = "@/posts/_index.md" },
+    { name = "/projects", url = "@/projects.md" },
+    { name = "/about", url = "@/about.md" },
+    { name = "git", url = "https://git.mat.services/mat", external = true },
 ]
-#The icons available can be found in "social_icons" in the "static" folder
-socials = [
-    { name = "github", url = "https://github.com/brittonr/", icon = "github" },
+
+me_links = [
+    { name = "pijul nest", url = "https://nest.pijul.com/mat" },
+    { name = "lobste.rs", url = "https://lobste.rs/u/mat" },
+    { name = "gitlab", url = "https://gitlab.com/matthewess" },
+    { name = "github", url = "https://github.com/matthewess" },
 ]
+
