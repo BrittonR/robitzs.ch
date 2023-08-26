@@ -2,7 +2,7 @@ FROM ghcr.io/getzola/zola:v0.17.2 AS builder
 
 WORKDIR /app
 
-COPY . .
+COPY /robitzsch .
 
 RUN ["zola", "build"]
 
