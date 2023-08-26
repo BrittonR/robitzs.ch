@@ -31,11 +31,11 @@ external_links_no_referrer = true
 favicon = "/image/favicon.svg"
 stylesheets = []
 
-fonts = [
-    { path = "ia-writer-quattro", name = "iAWriterQuattroS" },
-    { path = "ibm-plex-mono", name = "IBMPlexMono" },
-    { path = "inria-sans", name = "InriaSans" }
-]
+# fonts = [
+#     { path = "ia-writer-quattro", name = "iAWriterQuattroS" },
+#     { path = "ibm-plex-mono", name = "IBMPlexMono" },
+#     { path = "inria-sans", name = "InriaSans" }
+# ]
 
 menu = [
     { name = "/posts", url = "@/posts/_index.md" },
