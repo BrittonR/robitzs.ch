@@ -10,9 +10,9 @@
 	<subtitle>{{ config.description }}</subtitle>
 	{%- endif %}
 	<author>
-		<name>mat ess</name>
-		<email>mat@mat.services</email>
-		<uri>https://www.mat.services</uri>
+		<name>britton robitzsch</name>
+		<email>b@robitzs.ch</email>
+		<uri>https://robitzs.ch</uri>
 	</author>
 	<link href="{{ feed_url | safe }}" rel="self" type="application/atom+xml"/>
 	<icon>{{ get_url(path=config.extra.favicon) }}</icon>
