@@ -46,5 +46,6 @@ menu = [
 
 me_links = [
     { name = "github", url = "https://github.com/brittonr" },
+    { name = "linkedin", url = "https://www.linkedin.com/in/brittonrobitzsch/" },
 ]
 
