@@ -17,7 +17,7 @@ rec {
       rev = "cd5227bd1f61dff3bbd6c814ceaf7ffd95e947d9";
       sha256 = "SW9d5yVud2BWUJpDOlqYn1E1cqicIHdSZjbXjqOAQGw=";
       path = "/fonts/webfonts/";
-      cssVar = "text-font";
+      # cssVar = "text-font";
     }
     # {
     #   name = "JetBrains Mono";
@@ -56,11 +56,11 @@ rec {
     '';
   };
   fetchFont = fontSrc: {
-    inherit (fontSrc) name fileName cssVar;
+    inherit (fontSrc) name fileName;
     font = fontDerivation fontSrc;
   };
   fonts = map fetchFont fontSrcs;
-  mkFontCss = { name, fileName, cssVar, ... }:
+  mkFontCss = { name, fileName, ... }:
     let path = pathName name; in ''
       @font-face {
         font-family: '${name}';
@@ -95,7 +95,13 @@ rec {
       }
   
       :root {
-        --${cssVar}: '${name}'
+        --header-font: '${name}'
+      }
+      :root {
+        --text-font: '${name}'
+      }
+      :root {
+        --code-font: '${name}'
       }
 
     '';
