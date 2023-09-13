@@ -1,4 +1,14 @@
 {% extends "base.html" %}
 {%- block main_content -%}
-{{ post_macros::page_header(title="robitzsch")}}
+{{ post_macros::page_header(title="homepage of britton robitzsch")}}
+<span>also on
+  {%- for me in config.extra.me_links -%}
+  {%- if loop.last -%}
+  &#32;and&#32;
+  {%- endif %}
+  <a href="{{ me.url | safe }}" target="_blank" rel="me noopener noreferrer">{{ me.name }}</a>
+  {%- if not loop.last -%}{%- else %}
+</span>
+{%- endif -%}
+{% endfor %}
 {% endblock main_content %}

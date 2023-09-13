@@ -30,11 +30,8 @@ external_links_no_referrer = true
 [extra]
 favicon = "/image/favicon.svg"
 stylesheets = []
-
 fonts = [
-    { path = "ia-writer-quattro", name = "iAWriterQuattroS" },
-    { path = "ibm-plex-mono", name = "IBMPlexMono" },
-    { path = "inria-sans", name = "InriaSans" }
+    { path = "jetbrains-mono", name = "JetBrainsMono" }
 ]
 
 menu = [
@@ -46,6 +43,6 @@ menu = [
 
 me_links = [
     { name = "github", url = "https://github.com/brittonr" },
-    { name = "linkedin", url = "https://www.linkedin.com/in/brittonrobitzsch/" },
+    { name = "linkedin", url = "https://www.linkedin.com/in/brittonrobitzsch/"},
 ]
 

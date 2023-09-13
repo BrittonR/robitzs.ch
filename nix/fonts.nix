@@ -10,35 +10,35 @@ in
 rec {
   fontSrcs = [
     {
-      name = "Inria Sans";
-      fileName = "InriaSans";
-      owner = "BlackFoundryCom";
-      repo = "InriaFonts";
-      rev = "v1.200";
-      path = "fonts/InriaSans/Web";
-      sha256 = "+YK03VnMXytTtHHgGYe2uARaTThaqrhpnhxPASBV9k0=";
-      cssVar = "header-font";
-    }
-    {
-      name = "iA Writer Quattro";
-      fileName = "iAWriterQuattroS";
-      owner = "iaolo";
-      repo = "iA-Fonts";
-      rev = "ba31f88a1e71f413f97bbd23a99e21b29d4c3a28";
-      path = "iA\ Writer\ Quattro/Webfonts";
-      sha256 = "8r06oRA+XA8mPjG3DJxzIVpaqptSqzraOWVvebbnMWE=";
+      name = "JetBrains Mono";
+      fileName = "JetBrainsMono";
+      owner = "JetBrains";
+      repo = "JetBrainsMono";
+      rev = "cd5227bd1f61dff3bbd6c814ceaf7ffd95e947d9";
+      sha256 = "SW9d5yVud2BWUJpDOlqYn1E1cqicIHdSZjbXjqOAQGw=";
+      path = "/fonts/webfonts/";
       cssVar = "text-font";
     }
-    {
-      name = "IBM Plex Mono";
-      fileName = "IBMPlexMono";
-      owner = "IBM";
-      repo = "plex";
-      rev = "v6.1.0";
-      path = "IBM-Plex-Mono/fonts/complete/woff2";
-      sha256 = "SpH4+ldQJl58w5onxr7faDS6uVJKT8ZeLmE6712GFhw=";
-      cssVar = "code-font";
-    }
+    # {
+    #   name = "JetBrains Mono";
+    #   fileName = "JetBrainsMono";
+    #   owner = "JetBrains";
+    #   repo =  "JetBrainsMono";
+    #   rev = "cd5227bd1f61dff3bbd6c814ceaf7ffd95e947d9";
+    #   sha256 = "SW9d5yVud2BWUJpDOlqYn1E1cqicIHdSZjbXjqOAQGw=";
+    #   path = "/fonts/webfonts/";
+    #   cssVar = "code-font";
+    # }
+    # {
+    #   name = "JetBrains Mono";
+    #   fileName = "JetBrainsMono";
+    #   owner = "JetBrains";
+    #   repo =  "JetBrainsMono";
+    #   rev = "cd5227bd1f61dff3bbd6c814ceaf7ffd95e947d9";
+    #   sha256 = "SW9d5yVud2BWUJpDOlqYn1E1cqicIHdSZjbXjqOAQGw=";
+    #   path = "/fonts/webfonts/";
+    #   cssVar = "header-font";
+    # }
   ];
   fontDerivation = { name, owner, repo, rev, sha256, path, ... }: stdenv.mkDerivation {
     name = "font-${pathName name}";
